@@ -4,8 +4,8 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 def markup_daily():
     items = [
-        "Дейли ПАИП",
-        "Дейли НСИ"
+        "Дейли Команды 1",
+        "Дейли Команды 2"
     ]
 
     keyboard_builder = ReplyKeyboardBuilder()
