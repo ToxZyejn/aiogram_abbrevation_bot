@@ -10,7 +10,7 @@ import datetime
 from keyboards import markup_daily
 
 logging.basicConfig(level=logging.INFO)
-bot = Bot('5861648013:AAG0ICuPqc7Zf8KEdgvh1NAVQ0zybw28LSc')
+bot = Bot('TOKEN')
 dp = Dispatcher()
 
 with open('abbreviaturka.json', 'r') as file:
@@ -49,11 +49,11 @@ async def send_calls(message: Message):
 
 
 # Декоратор для обработки нажатия кнопки "Дейли ПАИП"
-@dp.message(F.text == "Дейли ПАИП")
+@dp.message(F.text == "Дейли DAILY")
 async def request_daily_info(message):
     set_user_state(message.chat.id, STATE_WAITING_FOR_DAILY)
     await bot.send_message(message.chat.id,
-                     f"Пожалуйста, {message.from_user.first_name}, отправьте номера задач для Daily отчета в формате: \nВчера: ODP-xxxx, ODP-zzzz \nСегодня: ODP-yyyy, ODP-tttt")
+                     f"Пожалуйста, {message.from_user.first_name}, отправьте номера задач для Daily отчета в формате: \nВчера: TTT-xxxx, TTT-zzzz \nСегодня: TTT-yyyy, TTT-tttt")
 
 MyFilter = func = lambda message: get_user_state(message.chat.id) == STATE_WAITING_FOR_DAILY
 
@@ -71,10 +71,10 @@ async def create_daily_report(message: Message):
             today_tasks = tasks[1].split(": ")[1].split(",")
 
             daily_report = f"#daily_{today_date}\nа) Вчера в работе было: \n"
-            daily_report += ''.join([f"<a href='https://ihelp.rt.ru/browse/{task.strip()}'>задача {task.strip()}</a>\n" for task in yesterday_tasks if task])
+            daily_report += ''.join([f"<a href='https://YOUR_JIRA_URL/browse/{task.strip()}'>задача {task.strip()}</a>\n" for task in yesterday_tasks if task])
 
             daily_report += f"б) Сегодня буду заниматься: \n"
-            daily_report += ''.join([f"<a href='https://ihelp.rt.ru/browse/{task.strip()}'>задача {task.strip()}</a>\n" for task in today_tasks if task])
+            daily_report += ''.join([f"<a href='https://YOUR_JIRA_URL/browse/{task.strip()}'>задача {task.strip()}</a>\n" for task in today_tasks if task])
 
             daily_report += "в) Проблем нет\n"
 
