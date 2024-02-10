@@ -4,7 +4,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 def markup_daily():
     items = [
-        "Дейли Команды 1",
+        "Дейли DAILY",
         "Дейли Команды 2"
     ]
 
