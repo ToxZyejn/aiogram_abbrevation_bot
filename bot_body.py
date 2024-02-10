@@ -4,7 +4,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, F
 import aioschedule
 from aiogram.filters import Command
-from aiogram.types import Message, Sticker, ReplyKeyboardMarkup, chat
+from aiogram.types import Message, Sticker, ReplyKeyboardMarkup
 import logging
 import datetime
 from keyboards import markup_daily
