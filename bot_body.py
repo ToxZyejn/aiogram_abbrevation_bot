@@ -2,7 +2,6 @@ import json
 import aiogram
 import asyncio
 from aiogram import Bot, Dispatcher, F
-import aioschedule
 from aiogram.filters import Command
 from aiogram.types import Message, Sticker, ReplyKeyboardMarkup
 import logging
