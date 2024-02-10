@@ -47,7 +47,7 @@ async def send_calls(message: Message):
     await bot.send_message(message.chat.id, f'Прошу, {message.from_user.first_name}, выбери свое СПО', reply_markup=markup_daily())
 
 
-# Декоратор для обработки нажатия кнопки "Дейли ПАИП"
+# Декоратор для обработки нажатия кнопки "Дейли команды"
 @dp.message(F.text == "Дейли DAILY")
 async def request_daily_info(message):
     set_user_state(message.chat.id, STATE_WAITING_FOR_DAILY)
