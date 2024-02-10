@@ -44,7 +44,7 @@ async def helper(message: Message):
 
 @dp.message(Command('daily'))
 async def send_calls(message: Message):
-    await bot.send_message(message.chat.id, f'Прошу, {message.from_user.first_name}, выбери свое СПО', reply_markup=markup_daily())
+    await bot.send_message(message.chat.id, f'Прошу, {message.from_user.first_name}, выбери свою команду', reply_markup=markup_daily())
 
 
 # Декоратор для обработки нажатия кнопки "Дейли команды"
